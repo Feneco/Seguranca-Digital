@@ -1,0 +1,83 @@
+\documentclass[openany,a5paper,16pt]{mystyle}
+
+%----------------------------------------------------------------------------------------
+% Linguagem: português brasil
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage[brazilian]{babel}
+\usepackage{hyphenat}
+\hyphenation{mate-mática recu-perar}
+\usepackage{lipsum}
+
+%----------------------------------------------------------------------------------------
+% Caixas de texto
+\usepackage[most]{tcolorbox}
+% Cores do livro
+\definecolor{myred}{RGB}{178, 85, 56}
+\definecolor{myblue}{RGB}{120,149,164}
+\definecolor{myocre}{RGB}{109,82,23}
+\definecolor{ocre}{RGB}{120,149,164}
+\definecolor{mygrey}{RGB}{65,64,66}
+
+\newtcolorbox{ficadica} {
+    enhanced jigsaw, height = 40mm, height plus = 120mm, colback=white,colframe=myocre,coltitle=myocre,
+    sharp corners, detach title, leftrule=26mm,
+    underlay unbroken and first={
+        \node[below,text=white,font=\bfseries,align=center]
+            at ([xshift=-13mm,yshift=-1mm]interior.north west) {Fica a Dica}; 
+        \node[align=center] 
+            at ([xshift=-13mm, yshift=12.5mm]interior.south west) {\includegraphics[width=26.2mm]{img/saibamais.png}};
+    },
+}
+
+\newtcolorbox{saibamais} {
+    enhanced jigsaw, height = 40mm, height plus = 120mm, colback=white,colframe=myblue,coltitle=myblue,
+    sharp corners, detach title, leftrule=26mm,
+    underlay unbroken and first={
+        \node[below,text=white,font=\bfseries,align=center]
+            at ([xshift=-13mm,yshift=-1mm]interior.north west) {Saiba mais}; 
+        \node[align=center] 
+            at ([xshift=-13mm, yshift=12.5mm]interior.south west) {\includegraphics[width=26.2mm]{img/definicao.png}};
+    },
+}
+
+\newtcolorbox{atencao} {
+    enhanced jigsaw, height = 40mm, height plus = 120mm, colback=white,colframe=myred,coltitle=myred,
+    sharp corners, detach title, leftrule=26mm,
+    underlay unbroken and first={
+        \node[below,text=white,font=\bfseries,align=center]
+            at ([xshift=-13mm,yshift=-1mm]interior.north west) {Atenção}; 
+        \node[align=center] 
+            at ([xshift=-13mm, yshift=12.5mm]interior.south west) {\includegraphics[width=26.2mm]{img/importante.png}};
+    },
+}
+
+\title{Segurança Digital}
+\author{Wagner Clemente Coelho Batalha \and João Paulo Vaz Mendes}
+\date{\today}
+
+\chapterspaceabove{50mm} % Default whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{60mm}
+\chapterimage{img/chapter_image.pdf}
+
+\bibliography{bibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Conteúdo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\titlepage 
+	{\includegraphics[height=\paperheight]{img/title.pdf}}
+
+\tableofcontents
+
+\input{conteudo/introducao.tex}
+\input{conteudo/capitulo1.tex}
+\input{conteudo/capitulo2.tex}
+\input{conteudo/capitulo3.tex}
+
+\part{Bibliografia}
+\printbibliography
+
+\end{document}
